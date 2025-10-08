@@ -70,14 +70,19 @@
             </div>
           </div>
 
+          <!-- Error message -->
+          <div v-if="authStore.error" class="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg">
+            {{ authStore.error }}
+          </div>
+
           <div>
             <button
               type="submit"
-              :disabled="loading"
+              :disabled="authStore.loading"
               class="w-full btn-primary flex justify-center py-2 px-4 disabled:opacity-50"
             >
-              <span v-if="loading" class="loading-spinner mr-2"></span>
-              {{ loading ? 'Signing in...' : 'Sign in' }}
+              <span v-if="authStore.loading" class="loading-spinner mr-2"></span>
+              {{ authStore.loading ? 'Signing in...' : 'Sign in' }}
             </button>
           </div>
 
@@ -95,7 +100,7 @@
               <button
                 type="button"
                 @click="handleGoogleLogin"
-                :disabled="loading"
+                :disabled="authStore.loading"
                 class="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 disabled:opacity-50"
               >
                 <svg class="w-5 h-5 mr-2" viewBox="0 0 24 24">
@@ -126,8 +131,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
+import { useAuthStore } from '../../stores/auth'
 
 const router = useRouter()
+const authStore = useAuthStore()
 
 const form = ref({
   email: '',
@@ -135,43 +142,25 @@ const form = ref({
   rememberMe: false
 })
 
-const loading = ref(false)
-
 const handleLogin = async () => {
-  loading.value = true
-  try {
-    // TODO: Implement Firebase authentication
-    console.log('Login attempt:', form.value)
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Redirect to dashboard on success
+  const { success, error } = await authStore.login(form.value.email, form.value.password)
+  
+  if (success) {
     router.push('/dashboard')
-  } catch (error) {
+  } else {
+    // Error is already set in the store
     console.error('Login error:', error)
-    // TODO: Show error message
-  } finally {
-    loading.value = false
   }
 }
 
 const handleGoogleLogin = async () => {
-  loading.value = true
-  try {
-    // TODO: Implement Google OAuth
-    console.log('Google login attempt')
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    // Redirect to dashboard on success
+  const { success, error } = await authStore.loginWithGoogleProvider()
+  
+  if (success) {
     router.push('/dashboard')
-  } catch (error) {
+  } else {
+    // Error is already set in the store
     console.error('Google login error:', error)
-    // TODO: Show error message
-  } finally {
-    loading.value = false
   }
 }
 </script>

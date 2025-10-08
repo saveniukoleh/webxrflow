@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -56,10 +57,20 @@ const router = createRouter({
   routes
 })
 
-// Navigation guards will be added later when authentication is implemented
-// router.beforeEach((to, from, next) => {
-//   // Authentication logic here
-//   next()
-// })
+// Navigation guards for authentication
+router.beforeEach((to, from, next) => {
+  const authStore = useAuthStore()
+  
+  // Check if route requires authentication
+  if (to.meta.requiresAuth && !authStore.isAuthenticated) {
+    // Redirect to login page
+    next({ name: 'login' })
+  } else if ((to.name === 'login' || to.name === 'register') && authStore.isAuthenticated) {
+    // Redirect authenticated users away from auth pages
+    next({ name: 'dashboard' })
+  } else {
+    next()
+  }
+})
 
 export default router
