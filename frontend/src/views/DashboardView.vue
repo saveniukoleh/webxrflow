@@ -5,7 +5,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <RouterLink to="/" class="text-2xl font-bold text-primary-600">🎮 WebXR CMS</RouterLink>
+            <RouterLink to="/" class="text-2xl font-bold text-primary-600">WebXR CMS</RouterLink>
           </div>
           <div class="flex items-center space-x-4">
             <RouterLink to="/gallery" class="text-gray-600 hover:text-gray-900">

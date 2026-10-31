@@ -7,48 +7,49 @@ const routes: RouteRecordRaw[] = [
     path: '/',
     name: 'home',
     component: () => import('../views/HomeView.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, title: 'WebXR CMS' }
   },
   {
     path: '/login',
     name: 'login',
     component: () => import('../views/auth/LoginView.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, title: 'Sign in · WebXR CMS' }
   },
   {
     path: '/register',
     name: 'register',
     component: () => import('../views/auth/RegisterView.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, title: 'Create account · WebXR CMS' }
   },
   {
     path: '/dashboard',
     name: 'dashboard',
     component: () => import('../views/DashboardView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, title: 'Dashboard · WebXR CMS' }
   },
   {
     path: '/editor/:id?',
     name: 'editor',
     component: () => import('../views/EditorView.vue'),
-    meta: { requiresAuth: true }
+    meta: { requiresAuth: true, title: 'Editor · WebXR CMS' }
   },
   {
     path: '/gallery',
     name: 'gallery',
     component: () => import('../views/GalleryView.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, title: 'Gallery · WebXR CMS' }
   },
   {
     path: '/view/:id',
     name: 'viewer',
     component: () => import('../views/WebXRViewer.vue'),
-    meta: { requiresAuth: false }
+    meta: { requiresAuth: false, title: 'View · WebXR CMS' }
   },
   {
     path: '/:pathMatch(.*)*',
     name: 'not-found',
-    component: () => import('../views/NotFoundView.vue')
+    component: () => import('../views/NotFoundView.vue'),
+    meta: { title: 'Page not found · WebXR CMS' }
   }
 ]
 
@@ -71,6 +72,11 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
+})
+
+router.afterEach((to) => {
+  const title = to.meta.title
+  document.title = typeof title === 'string' ? title : 'WebXR CMS'
 })
 
 export default router

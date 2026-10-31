@@ -1,8 +1,10 @@
-# 🎮 WebXR CMS
+# WebXR CMS
 
-> **A powerful content management system for creating, editing, and publishing immersive WebXR experiences**
+Portfolio project by [Oleh Saveniuk](https://github.com/saveniukoleh).
 
-Transform your ideas into interactive AR/VR scenes with our intuitive web-based editor. Build, share, and experience immersive content like never before.
+**Live demo:** [https://saveniukoleh.github.io/webxrflow/](https://saveniukoleh.github.io/webxrflow/)
+
+> A web app for creating, editing, and publishing immersive WebXR experiences in the browser.
 
 ---
 
@@ -123,24 +125,23 @@ The minimum viable product enables users to:
 
 ## 🏃‍♂️ **Getting Started**
 
-> *This section will be updated as development progresses*
-
 ### **Prerequisites**
-- Modern web browser with WebXR support
-- Node.js 16+ for development
-- Firebase account for backend services
+- Node.js 18+
+- A modern browser. WebXR features need a browser and device that support them.
+- A Firebase project if you want authentication, saved projects, and asset uploads
 
 ### **Installation**
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/webxrflow.git
-
-# Install dependencies
+git clone https://github.com/saveniukoleh/webxrflow.git
+cd webxrflow/frontend
 npm install
-
-# Start development server
 npm run dev
 ```
+
+The dev server runs at [http://localhost:5173/](http://localhost:5173/).
+
+### **GitHub Pages**
+A push to `main` builds `frontend/` and publishes the site to GitHub Pages at [https://saveniukoleh.github.io/webxrflow/](https://saveniukoleh.github.io/webxrflow/). The production build uses the `/webxrflow/` base path. A copy of `index.html` is published as `404.html` so client-side routes such as `/gallery` still load.
 
 ---
 
@@ -160,11 +161,9 @@ npm run dev
 
 ### 🚧 **Development Status**
 
-**Current Phase**: MVP Development  
-**Progress**: Planning & Setup Complete  
-**Next Milestone**: Backend Implementation
+**Live demo**: [saveniukoleh.github.io/webxrflow](https://saveniukoleh.github.io/webxrflow/)
 
-[![Status](https://img.shields.io/badge/Status-In%20Development-orange)](https://github.com/yourusername/webxrflow)
+[![Status](https://img.shields.io/badge/Status-Portfolio%20demo-orange)](https://github.com/saveniukoleh/webxrflow)
 [![Firebase](https://img.shields.io/badge/Firebase-Enabled-green)](https://firebase.google.com/)
 [![WebXR](https://img.shields.io/badge/WebXR-Ready-blue)](https://immersiveweb.dev/)
 

@@ -121,8 +121,19 @@ export const useProjectsStore = defineStore('projects', () => {
       if (success) {
         // Update the project in the local array
         const index = projects.value.findIndex(p => p.id === projectId)
-        if (index !== -1) {
-          projects.value[index] = { ...projects.value[index], ...updates }
+        const current = projects.value[index]
+        if (current) {
+          projects.value[index] = {
+            ...current,
+            ...updates,
+            userId: updates.userId ?? current.userId,
+            title: updates.title ?? current.title,
+            description: updates.description ?? current.description,
+            sceneData: updates.sceneData ?? current.sceneData,
+            isPublished: updates.isPublished ?? current.isPublished,
+            createdAt: updates.createdAt ?? current.createdAt,
+            updatedAt: updates.updatedAt ?? current.updatedAt,
+          }
         }
         return { success: true }
       }

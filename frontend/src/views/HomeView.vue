@@ -5,7 +5,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex items-center">
-            <h1 class="text-2xl font-bold text-primary-600">🎮 WebXR CMS</h1>
+            <h1 class="text-2xl font-bold text-primary-600">WebXR CMS</h1>
           </div>
           <div class="flex items-center space-x-4">
             <RouterLink to="/gallery" class="text-gray-600 hover:text-gray-900">
@@ -103,13 +103,21 @@
     <footer class="bg-gray-900 text-white py-12">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-          <h3 class="text-2xl font-bold mb-4">🎮 WebXR CMS</h3>
-          <p class="text-gray-400 mb-4">
-            Building the future of immersive web experiences
+          <h3 class="text-2xl font-bold mb-4">WebXR CMS</h3>
+          <p class="text-gray-400 mb-2">
+            A portfolio project by <span class="text-white">Oleh Saveniuk</span>
           </p>
           <p class="text-gray-500 text-sm">
-            © 2024 WebXR CMS. All rights reserved.
+            © {{ new Date().getFullYear() }} Oleh Saveniuk
           </p>
+          <a
+            href="https://github.com/saveniukoleh/webxrflow"
+            class="inline-block mt-4 text-sm text-gray-400 hover:text-white transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View source on GitHub
+          </a>
         </div>
       </div>
     </footer>
