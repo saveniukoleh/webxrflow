@@ -2,7 +2,7 @@
 
 Portfolio project by [Oleh Saveniuk](https://github.com/saveniukoleh).
 
-**Live demo:** [https://saveniukoleh.github.io/webxrflow/](https://saveniukoleh.github.io/webxrflow/)
+**Live demo:** [https://saveniukoleh.com/webxrflow/](https://saveniukoleh.com/webxrflow/)
 
 > A web app for creating, editing, and publishing immersive WebXR experiences in the browser.
 
@@ -141,7 +141,7 @@ npm run dev
 The dev server runs at [http://localhost:5173/](http://localhost:5173/).
 
 ### **GitHub Pages**
-A push to `main` builds `frontend/` and publishes the site to GitHub Pages at [https://saveniukoleh.github.io/webxrflow/](https://saveniukoleh.github.io/webxrflow/). The production build uses the `/webxrflow/` base path. A copy of `index.html` is published as `404.html` so client-side routes such as `/gallery` still load.
+A push to `main` builds `frontend/` and publishes the site with GitHub Pages. The public address is [https://saveniukoleh.com/webxrflow/](https://saveniukoleh.com/webxrflow/). The production build uses the `/webxrflow/` base path. A copy of `index.html` is published as `404.html` so client-side routes such as `/gallery` still load.
 
 ---
 
@@ -161,7 +161,7 @@ A push to `main` builds `frontend/` and publishes the site to GitHub Pages at [h
 
 ### 🚧 **Development Status**
 
-**Live demo**: [saveniukoleh.github.io/webxrflow](https://saveniukoleh.github.io/webxrflow/)
+**Live demo**: [saveniukoleh.com/webxrflow](https://saveniukoleh.com/webxrflow/)
 
 [![Status](https://img.shields.io/badge/Status-Portfolio%20demo-orange)](https://github.com/saveniukoleh/webxrflow)
 [![Firebase](https://img.shields.io/badge/Firebase-Enabled-green)](https://firebase.google.com/)
